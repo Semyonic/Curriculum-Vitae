@@ -1,0 +1,131 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{casual}                             % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue}                               % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.85]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+% personal data
+\name{Semih}{Onay}
+%\title{Resumé title}                               % optional, remove / comment the line if not wanted
+\address{Başakşehir 5.Etap İstinye Sitesi  B-10 Daire:37}{34480 İstanbul}{Başakşehir}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+\phone[mobile]{(0505)~615~93~91}                   % optional, remove / comment the line if not wanted
+\phone[fixed]{(0212)~487~03~45}                    % optional, remove / comment the line if not wanted
+%\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
+\email{semihonay@hotmail.com.tr}                               % optional, remove / comment the line if not wanted
+\homepage{semyonic.github.io}                         % optional, remove / comment the line if not wanted
+%\extrainfo{additional information}                 % optional, remove / comment the line if not wanted
+\photo[80pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+\section{Education}
+\cventry{2016--Present}{İstanbul Uskudar University}{\textnormal {Institue of Health Sciences}}{}{\newline \textbf{Neuroscience (Masters Degree)}}{}  % arguments 3 to 6 can be left empty
+\cventry{2011--2015}{İstanbul Bilgi University}{\textnormal {Faculty of Arts and Science}}{}{\newline \textbf{Computer Science (Bachelors Degree - English)}}{}  % arguments 3 to 6 can be left empty
+\cventry{2008--2011}{İstanbul Arel University}{\textnormal {Vocational School}}{}{\newline \textbf{Computer Programming (Vocational - Turkish)}}{}
+\cventry{2003--2006}{İstanbul Başakşehir Highschool}{}{}{}{}
+
+\section{Experience}
+\subsection{Professional}
+\cventry{April 2016 - Present}{\textnormal{\textit{Software Development Specialist}}}{\textnormal{\textbf{Setrow}}}{}{}{\textbf{Software Development}
+\begin{itemize}%
+	\item Data Integraions via SOAP,REST using PHP,MySQL services (Completed)
+	\item Company Wide Online Learning System Platform using JavaScript,PHP,MySQL (Completed)
+	\item Web Push Notification Service (JavaScript,PHP,MySQL,Redis,RabbitMQ)(Completed)
+	\item Realtime Log Monitoring Tool (Completed) (Node.JS,socket.io)
+	\item Facebook Marketing Integration (Completed) (JavaScript,PHP,MySQL)
+	\item Mobile Application (In Progress) (React-Native,MongoDB)
+	\item Mobile Push Notification Service (In Progress) (Swift)
+\end{itemize}}
+\cventry{Temmuz - Ağustos 2010}{\textnormal{\textit{Stajyer}}}{\textnormal{\textbf{Burla Makine Ticareti ve Yatırım A.Ş}}}{}{}{\textbf{Bilgi İşlem Departmanı}
+\begin{itemize}%
+	\item Çalışanların bilgisayar sorunlarına çözüm sağlanması
+	\item Posta servisinin durum kontrolleri ve yeni kullanıcalar için ayarlanması
+	\item Sunucu kayıtlarının incelenmesi ve raporlanması
+\end{itemize}}
+
+
+
+\subsection{Out of Profession}
+\cventry{November-2015}{\textnormal{\textit{Stand Görevlisi}}}{\textnormal{\textbf{Can Yayınları}}}{}{}{34th Istanbul International Book Fair}
+
+\section{Projects}
+\cvitemwithcomment{2017}{Setrow - Log Monitoring Application}{Streaming Logs over UDP packets to NodeJS to stream them in realtime via socket.io}
+\cvitemwithcomment{2017}{Setrow - Facebook Marketing Integration}{Allowing Setrow Customers to upload their segmented customer groups to Facebook for creating AD Audiences}
+\cvitemwithcomment{2016}{Setrow - Web Push Notification Service}{Push Notifications Service for web sites and customers. Works on Chrome,Firefox,Opera and Yandex.}
+\cvitemwithcomment{2016}{Personal - Unreal Engine Pyhsics Experiments}{Experimenting physics via Unreal Engine. Throwing objects, low gravity, mesh destruction}
+\cvitemwithcomment{2016}{Personal - Location Tracking App}{iOS only location tracker for personal use via Objective-C and PHP,MySQL}
+\cvitemwithcomment{2016}{Personal - Raspberry Pi IOT Projects}{Streaming WebCam and controlling LEDS over HTTP behind Router}
+\cvitemwithcomment{2015}{Lisans Bitirme Tezi}{Cognitive Robotics}
+\cvitemwithcomment{2014}{Personal - Web Site}{Design,management and SEO optimizations}
+\cvitemwithcomment{2014}{Personal -  Cloud Service}{ownCloud hosting on RaspberryPi with modifications}
+\cvitemwithcomment{2014}{Personal - Real Time Tweet Analaysis}{Realtime tweet analaysis with Twitter API}
+
+\section{Certificates}
+\cvitemwithcomment{2015}{İstanbul Haliç Üniversitesi Psikoloji Günleri}{2 gün süren davranış ve iletişim semineri}
+\cvitemwithcomment{2009}{Ethical Hacking}{2 Gün süren bilişim güvenliği semineri}
+\cvitemwithcomment{2009}{Web'in Geleceği ve E-Ticaret}{2 gün süren e-ticaret ve web teknolojileri semineri}
+\section{Language Proficiency}
+\cvitemwithcomment{\textbf{İngilizce}}{İleri Seviye}{Konuşma,okuma ve yazma}
+\section{Software Development Skills}
+\cvdoubleitem{\textbf{Programlama Dilleri}}{Java,C,C++,C\#,Python,Lisp,}{Orta Seviye}{}
+\cvdoubleitem{\textbf{Programlama Dilleri}}{JavaScript,PHP}{İleri Seviye}{}
+\cvdoubleitem{\textbf{Web Tasarımı}}{HTML,GulpJS,Bootstrap}{İleri Seviye}{}
+\cvdoubleitem{\textbf{Web Sunucuları}}{Apache,nginx,lighttpd,MySQL}{İleri Seviye}{}
+\cvdoubleitem{\textbf{İşletim Sistemleri}}{Linux,Mac OS}{İleri Seviye}{}
+\cvdoubleitem{\textbf{İşletim Sistemleri}}{Windows}{Orta Seviye}{}
+\cvdoubleitem{\textbf{Programlar}}{Github,Jenkins,Google Closure Compiler,NPM,ESLint,LaTeX,WireShark}{İleri Seviye}{}
+
+\section{Interests}
+\cvitem{}{Oyun tasarımı,bilgisayar oyunları,enstürmantal müzik,kendin yap,biyoloji,psikoloji,felsefe}
+
+\section{Personal}
+\cvdoubleitem{\textbf{Birth Date}}{08.02.1990}{}{}
+\cvdoubleitem{\textbf{Birth Place}}{Gölcük/Kocaeli}{}{}
+\cvdoubleitem{\textbf{Driving Licence}}{B Sınıfı}{}{}
+\cvdoubleitem{\textbf{Martial Status}}{Bekar}{}{}
+\cvdoubleitem{\textbf{Military Service}}{Postponed 31.12.2018}{}{}
+
+
+% Publications from a BibTeX file without multibib
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+
+%\clearpage\end{CJK*}                              % if you are typesetting your resume in Chinese using CJK; the \clearpage is required for fancyhdr to work correctly with CJK, though it kills the page numbering by making \lastpage undefined
+\end{document}
+
+
+%% end of file `template.tex'.
