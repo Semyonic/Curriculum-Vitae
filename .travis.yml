@@ -8,9 +8,8 @@ script:
 
 deploy:
 - provider: releases
-  api_key:
-    user: $USERNAME
-    password: $PASS
+  api_key:GITHUB_TOKEN
+    secure: $
   file_glob: true
   file: "*.pdf"
   skip_cleanup: true
