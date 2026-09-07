@@ -68,5 +68,5 @@ jobs:
           if ! gh release view "$TAG" --repo "$GH_REPO" >/dev/null 2>&1; then
             gh release create "$TAG" --title "Curriculum Vitae $TAG" --latest --repo "$GH_REPO"
           fi
-          gh release upload "$TAG" dist/SemihOnay-CV.pdf --clobber --latest --repo "$GH_REPO"
+          gh release upload "$TAG" dist/SemihOnay-CV.pdf --clobber --repo "$GH_REPO"
           gh release view "$TAG" --repo "$GH_REPO" --json tagName,assets --jq '{tag:.tagName,pdfs:[.assets[].name]}'
