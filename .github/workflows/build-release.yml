@@ -59,10 +59,14 @@ jobs:
           path: dist
 
       - name: Create / update release with PDF
-        uses: softprops/upload-release-assets-action@v2.3.0
-        with:
-          tag-name: ${{ github.ref_name }}
-          name: Curriculum Vitae ${{ github.ref_name }}
-          files: dist/SemihOnay-CV.pdf
-          make_latest: true
-          overwrite-existing-assets: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          if ! gh release view "$TAG" --repo "$GH_REPO" >/dev/null 2>&1; then
+            gh release create "$TAG" --title "Curriculum Vitae $TAG" --latest --repo "$GH_REPO"
+          fi
+          gh release upload "$TAG" dist/SemihOnay-CV.pdf --clobber --latest --repo "$GH_REPO"
+          gh release view "$TAG" --repo "$GH_REPO" --json tagName,assets --jq '{tag:.tagName,pdfs:[.assets[].name]}'
