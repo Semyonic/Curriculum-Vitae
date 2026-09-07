@@ -1,0 +1,65 @@
+name: Build CV & Release
+
+on:
+  push:
+    branches: [master]
+    tags: ["v*"]
+  pull_request:
+    branches: [master]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Compile PDF
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up TeX Live
+        uses: TeX-Live/setup-texlive-action@v3
+        with:
+          packages: >-
+            scheme-basic
+            collection-fontsextra
+            cm-super
+            lmodern
+
+      - name: Compile CV
+        run: pdflatex -interaction=nonstopmode -halt-on-error SemihOnay-CV.tex
+
+      - name: Verify PDF was produced
+        run: |
+          test -s SemihOnay-CV.pdf
+          file SemihOnay-CV.pdf | grep -q 'PDF document'
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv-pdf
+          path: SemihOnay-CV.pdf
+          if-no-match-files: error
+
+  release:
+    name: Publish GitHub Release
+    needs: build
+    if: github.event_name == 'push' && github.ref_type == 'tag'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download built PDF
+        uses: actions/download-artifact@v4
+        with:
+          name: cv-pdf
+          path: dist
+
+      - name: Create / update release with PDF
+        uses: softprops/upload-release-assets-action@v2.3.0
+        with:
+          tag-name: ${{ github.ref_name }}
+          name: Curriculum Vitae ${{ github.ref_name }}
+          files: dist/SemihOnay-CV.pdf
+          make_latest: true
+          overwrite-existing-assets: true
