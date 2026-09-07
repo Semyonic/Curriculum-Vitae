@@ -25,6 +25,9 @@ jobs:
           packages: >-
             scheme-basic
             collection-fontsextra
+            collection-xetex
+            microtype
+            upquote
             cm-super
             lmodern
 
